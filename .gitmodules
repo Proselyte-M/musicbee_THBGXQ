@@ -1,0 +1,3 @@
+[submodule "THBAlbums"]
+	path = THBAlbums
+	url = https://github.com/Proselyte-M/THBWiki_Albums_API.git
