@@ -19,6 +19,9 @@ namespace MusicBeePlugin
     {
         private MusicBeeApiInterface mbApiInterface;
         private float dpiScaleFactor = 1.0f;
+        string OAlbum = "";
+        string OAlbumArtist = "";
+        private THBWiki _thbWiki;
 
         public MainPage(MusicBeeApiInterface apiInterface)
         {
@@ -28,6 +31,7 @@ namespace MusicBeePlugin
             // 设置DPI感知
             this.AutoScaleDimensions = new SizeF(96F, 96F);
             this.AutoScaleMode = AutoScaleMode.Dpi;
+            _thbWiki = new THBWiki();
         }
 
         protected override void OnLoad(EventArgs e)
@@ -56,26 +60,104 @@ namespace MusicBeePlugin
 
         
 
+        /// <summary>
+        /// 开始处理专辑信息
+        /// </summary>
+        /// <param name="albumName">专辑名称</param>
+        /// <param name="albumArtist">专辑艺术家</param>
         public async void StartWork(string albumName, string albumArtist)
         {
-            if (this.InvokeRequired)
-            {
-                this.Invoke(new Action<string, string>(StartWork), new object[] { albumName, albumArtist });
-                return;
-            }
-
             try
             {
-                ClearAllControls();
+                // 获取专辑信息
+                var albumInfo = await _thbWiki.GetAlbumInfoAsync(albumName, albumArtist);
+                if (albumInfo == null)
+                {
+                    Log("未找到专辑信息");
+                    return;
+                }
 
-                Log($"开始获取专辑信息：{albumName}，艺术家：{albumArtist}");
-                var thbWiki = new THBWiki();
-                var result = await thbWiki.GetAlbumInfoAsync(albumName, albumArtist);
-                GetTHBWikiInfo(result);
+                // 获取专辑封面
+                var coverData = await _thbWiki.GetAlbumCoverAsync(albumInfo.SMWID.ToString());
+                if (coverData == null || coverData.Length == 0)
+                {
+                    Log("未找到专辑封面");
+                    return;
+                }
+
+                // 更新界面显示
+                await UpdateUI(albumInfo, coverData);
+            }
+            catch (AlbumNotFoundException ex)
+            {
+                Log($"未找到专辑: {ex.Message}");
+            }
+            catch (ArtistNotFoundException ex)
+            {
+                Log($"未找到社团: {ex.Message}");
+            }
+            catch (AlbumInfoFetchException ex)
+            {
+                Log($"获取专辑信息失败: {ex.Message}");
+            }
+            catch (AlbumCoverFetchException ex)
+            {
+                Log($"获取专辑封面失败: {ex.Message}");
+            }
+            catch (ArgumentNullException ex)
+            {
+                Log($"参数错误: {ex.Message}");
             }
             catch (Exception ex)
             {
-                Log($"获取专辑信息时发生错误：{ex.Message}");
+                Log($"发生未知错误：{ex.Message}");
+            }
+        }
+
+        /// <summary>
+        /// 更新界面显示
+        /// </summary>
+        /// <param name="albumInfo">专辑信息</param>
+        /// <param name="coverData">封面图片数据</param>
+        private async Task UpdateUI(GetAlbumResult albumInfo, byte[] coverData)
+        {
+            try
+            {
+                ClearAllControls();
+                // 更新文本框
+                UpdateTextBoxSafe(dreamTextBox_AlName, albumInfo.AlName);
+                UpdateTextBoxSafe(dreamTextBox_Circle, albumInfo.Circle);
+                UpdateTextBoxSafe(dreamTextBox_Date, albumInfo.Date);
+                UpdateTextBoxSafe(dreamTextBox_Year, albumInfo.Year);
+                UpdateTextBoxSafe(dreamTextBox_Event, albumInfo.Event);
+                UpdateTextBoxSafe(dreamTextBox_EventPage, albumInfo.EventPage);
+                UpdateTextBoxSafe(dreamTextBox_Rate, albumInfo.Rate);
+                UpdateTextBoxSafe(dreamTextBox_Number, albumInfo.Number);
+                UpdateTextBoxSafe(dreamTextBox_Disc, albumInfo.Disc.ToString());
+                UpdateTextBoxSafe(dreamTextBox_Track, albumInfo.Track.ToString());
+                UpdateTextBoxSafe(dreamTextBox_Time, FormatTime(albumInfo.time));
+                UpdateTextBoxSafe(dreamTextBox_Property, albumInfo.Property);
+                UpdateTextBoxSafe(dreamTextBox_Style, albumInfo.Style);
+                UpdateTextBoxSafe(dreamTextBox_Only, albumInfo.Only);
+                UpdateTextBoxSafe(dreamTextBox_Price, albumInfo.Price);
+                UpdateTextBoxSafe(dreamTextBox_EventPrice, albumInfo.EventPrice);
+                UpdateTextBoxSafe(dreamTextBox_ShopPrice, albumInfo.ShopPrice);
+                UpdateTextBoxSafe(dreamTextBox_Note, albumInfo.Note);
+                UpdateTextBoxSafe(dreamTextBox_Official, albumInfo.Official);
+                UpdateTextBoxSafe(dreamTextBox_CoverChar, albumInfo.CoverChar);
+
+                // 更新曲目列表
+                UpdateDataGridViewSafe(dataGridView1, albumInfo.Tracks);
+
+                // 更新专辑封面
+                await UpdatePictureBoxSafe(pictureBox1, coverData);
+
+                Log("界面更新完成");
+            }
+            catch (Exception ex)
+            {
+                Log($"更新界面时发生错误：{ex.Message}\n堆栈跟踪：{ex.StackTrace}");
+                throw;
             }
         }
         #region 控件控制
@@ -440,16 +522,16 @@ namespace MusicBeePlugin
             {
                 if (!ReferenceEquals(mbApiInterface, null))
                 {
-                    mbApiInterface.MB_Trace($"[窗口] {message}");
+                    mbApiInterface.MB_Trace($"[主窗口] {message}");
                 }
                 else
                 {
-                    System.Diagnostics.Debug.WriteLine($"[窗口] API接口未初始化: {message}");
+                    System.Diagnostics.Debug.WriteLine($"[主窗口] API接口未初始化: {message}");
                 }
             }
             catch (Exception ex)
             {
-                System.Diagnostics.Debug.WriteLine($"[窗口] 日志记录失败: {ex.Message}");
+                System.Diagnostics.Debug.WriteLine($"[主窗口] 日志记录失败: {ex.Message}");
             }
         }
 
@@ -471,21 +553,17 @@ namespace MusicBeePlugin
                     return;
                 }
 
-                // 获取当前播放文件的专辑名称和艺术家
-                string currentAlbum = mbApiInterface.Library_GetFileTag(currentFile, MetaDataType.Album);
-                string currentArtist = mbApiInterface.Library_GetFileTag(currentFile, MetaDataType.AlbumArtist);
+                Log($"当前专辑：{OAlbum}");
+                Log($"当前艺术家：{OAlbumArtist}");
 
-                Log($"当前专辑：{currentAlbum}");
-                Log($"当前艺术家：{currentArtist}");
-
-                if (string.IsNullOrEmpty(currentAlbum) || string.IsNullOrEmpty(currentArtist))
+                if (string.IsNullOrEmpty(OAlbum) || string.IsNullOrEmpty(OAlbumArtist))
                 {
                     Log("无法获取当前专辑信息");
                     return;
                 }
 
                 // 查询相同专辑的所有文件
-                string query = $"Artist = '{currentArtist}' AND Album = '{currentAlbum}'";
+                string query = $"AlbumArtist={OAlbumArtist} AND Album={OAlbum}";
                 Log($"执行查询：{query}");
                 
                 bool queryResult = mbApiInterface.Library_QueryFiles(query);
@@ -572,6 +650,42 @@ namespace MusicBeePlugin
             {
                 Log($"保存标签时发生错误：{ex.Message}");
             }
+        }
+
+        private void pictureBox1_DoubleClick(object sender, EventArgs e)
+        {
+            if (pictureBox1.Image == null) return;
+
+            // 创建新窗体
+            Form imageForm = new Form();
+            imageForm.Text = "专辑封面";
+            imageForm.StartPosition = FormStartPosition.CenterScreen;
+            imageForm.FormBorderStyle = FormBorderStyle.Sizable;
+            imageForm.MinimumSize = new Size(200, 200);
+
+            // 创建PictureBox
+            PictureBox fullSizePictureBox = new PictureBox();
+            fullSizePictureBox.Image = pictureBox1.Image;
+            fullSizePictureBox.SizeMode = PictureBoxSizeMode.Zoom; // 保持原始比例
+            fullSizePictureBox.Dock = DockStyle.Fill;
+
+            // 设置窗体大小为图片原始大小
+            imageForm.Size = new Size(
+                pictureBox1.Image.Width + 20, // 添加一些边距
+                pictureBox1.Image.Height + 40  // 添加标题栏的高度
+            );
+
+            // 添加PictureBox到窗体
+            imageForm.Controls.Add(fullSizePictureBox);
+
+            // 显示窗体
+            imageForm.Show();
+        }
+
+        private void airButton1_Click(object sender, EventArgs e)
+        {
+            Form form = new Music_Metadata_Editor(mbApiInterface, OAlbum);
+            form.Show();
         }
     }
 

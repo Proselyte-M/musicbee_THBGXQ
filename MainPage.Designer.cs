@@ -42,6 +42,9 @@ namespace MusicBeePlugin
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.AlName = new ReaLTaiizor.Controls.CrownLabel();
             this.Circle = new ReaLTaiizor.Controls.CrownLabel();
             this.Date = new ReaLTaiizor.Controls.CrownLabel();
@@ -85,6 +88,7 @@ namespace MusicBeePlugin
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.airButton_SaveTag = new ReaLTaiizor.Controls.AirButton();
+            this.airButton1 = new ReaLTaiizor.Controls.AirButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -93,7 +97,7 @@ namespace MusicBeePlugin
             // 
             this.AlName.AutoSize = true;
             this.AlName.ForeColor = System.Drawing.Color.Black;
-            this.AlName.Location = new System.Drawing.Point(12, 119);
+            this.AlName.Location = new System.Drawing.Point(12, 146);
             this.AlName.Name = "AlName";
             this.AlName.Size = new System.Drawing.Size(53, 12);
             this.AlName.TabIndex = 0;
@@ -103,7 +107,7 @@ namespace MusicBeePlugin
             // 
             this.Circle.AutoSize = true;
             this.Circle.ForeColor = System.Drawing.Color.Black;
-            this.Circle.Location = new System.Drawing.Point(12, 146);
+            this.Circle.Location = new System.Drawing.Point(12, 173);
             this.Circle.Name = "Circle";
             this.Circle.Size = new System.Drawing.Size(53, 12);
             this.Circle.TabIndex = 1;
@@ -113,7 +117,7 @@ namespace MusicBeePlugin
             // 
             this.Date.AutoSize = true;
             this.Date.ForeColor = System.Drawing.Color.Black;
-            this.Date.Location = new System.Drawing.Point(12, 200);
+            this.Date.Location = new System.Drawing.Point(12, 227);
             this.Date.Name = "Date";
             this.Date.Size = new System.Drawing.Size(53, 12);
             this.Date.TabIndex = 5;
@@ -123,7 +127,7 @@ namespace MusicBeePlugin
             // 
             this.Year.AutoSize = true;
             this.Year.ForeColor = System.Drawing.Color.Black;
-            this.Year.Location = new System.Drawing.Point(12, 173);
+            this.Year.Location = new System.Drawing.Point(12, 200);
             this.Year.Name = "Year";
             this.Year.Size = new System.Drawing.Size(53, 12);
             this.Year.TabIndex = 4;
@@ -133,7 +137,7 @@ namespace MusicBeePlugin
             // 
             this.Event.AutoSize = true;
             this.Event.ForeColor = System.Drawing.Color.Black;
-            this.Event.Location = new System.Drawing.Point(245, 38);
+            this.Event.Location = new System.Drawing.Point(182, 38);
             this.Event.Name = "Event";
             this.Event.Size = new System.Drawing.Size(29, 12);
             this.Event.TabIndex = 9;
@@ -143,7 +147,7 @@ namespace MusicBeePlugin
             // 
             this.EventPage.AutoSize = true;
             this.EventPage.ForeColor = System.Drawing.Color.Black;
-            this.EventPage.Location = new System.Drawing.Point(245, 11);
+            this.EventPage.Location = new System.Drawing.Point(182, 11);
             this.EventPage.Name = "EventPage";
             this.EventPage.Size = new System.Drawing.Size(53, 12);
             this.EventPage.TabIndex = 8;
@@ -153,7 +157,7 @@ namespace MusicBeePlugin
             // 
             this.Rate.AutoSize = true;
             this.Rate.ForeColor = System.Drawing.Color.Black;
-            this.Rate.Location = new System.Drawing.Point(245, 92);
+            this.Rate.Location = new System.Drawing.Point(182, 92);
             this.Rate.Name = "Rate";
             this.Rate.Size = new System.Drawing.Size(29, 12);
             this.Rate.TabIndex = 13;
@@ -163,7 +167,7 @@ namespace MusicBeePlugin
             // 
             this.Number.AutoSize = true;
             this.Number.ForeColor = System.Drawing.Color.Black;
-            this.Number.Location = new System.Drawing.Point(245, 65);
+            this.Number.Location = new System.Drawing.Point(182, 65);
             this.Number.Name = "Number";
             this.Number.Size = new System.Drawing.Size(53, 12);
             this.Number.TabIndex = 12;
@@ -173,7 +177,7 @@ namespace MusicBeePlugin
             // 
             this.Disc.AutoSize = true;
             this.Disc.ForeColor = System.Drawing.Color.Black;
-            this.Disc.Location = new System.Drawing.Point(467, 37);
+            this.Disc.Location = new System.Drawing.Point(332, 38);
             this.Disc.Name = "Disc";
             this.Disc.Size = new System.Drawing.Size(53, 12);
             this.Disc.TabIndex = 17;
@@ -183,7 +187,7 @@ namespace MusicBeePlugin
             // 
             this.Track.AutoSize = true;
             this.Track.ForeColor = System.Drawing.Color.Black;
-            this.Track.Location = new System.Drawing.Point(467, 10);
+            this.Track.Location = new System.Drawing.Point(332, 11);
             this.Track.Name = "Track";
             this.Track.Size = new System.Drawing.Size(65, 12);
             this.Track.TabIndex = 16;
@@ -193,7 +197,7 @@ namespace MusicBeePlugin
             // 
             this.Time.AutoSize = true;
             this.Time.ForeColor = System.Drawing.Color.Black;
-            this.Time.Location = new System.Drawing.Point(467, 91);
+            this.Time.Location = new System.Drawing.Point(332, 92);
             this.Time.Name = "Time";
             this.Time.Size = new System.Drawing.Size(65, 12);
             this.Time.TabIndex = 21;
@@ -203,7 +207,7 @@ namespace MusicBeePlugin
             // 
             this.Property.AutoSize = true;
             this.Property.ForeColor = System.Drawing.Color.Black;
-            this.Property.Location = new System.Drawing.Point(467, 64);
+            this.Property.Location = new System.Drawing.Point(332, 65);
             this.Property.Name = "Property";
             this.Property.Size = new System.Drawing.Size(53, 12);
             this.Property.TabIndex = 20;
@@ -213,7 +217,7 @@ namespace MusicBeePlugin
             // 
             this.Style.AutoSize = true;
             this.Style.ForeColor = System.Drawing.Color.Black;
-            this.Style.Location = new System.Drawing.Point(236, 146);
+            this.Style.Location = new System.Drawing.Point(182, 146);
             this.Style.Name = "Style";
             this.Style.Size = new System.Drawing.Size(53, 12);
             this.Style.TabIndex = 25;
@@ -223,7 +227,7 @@ namespace MusicBeePlugin
             // 
             this.Only.AutoSize = true;
             this.Only.ForeColor = System.Drawing.Color.Black;
-            this.Only.Location = new System.Drawing.Point(236, 119);
+            this.Only.Location = new System.Drawing.Point(182, 119);
             this.Only.Name = "Only";
             this.Only.Size = new System.Drawing.Size(53, 12);
             this.Only.TabIndex = 24;
@@ -233,7 +237,7 @@ namespace MusicBeePlugin
             // 
             this.Price.AutoSize = true;
             this.Price.ForeColor = System.Drawing.Color.Black;
-            this.Price.Location = new System.Drawing.Point(236, 200);
+            this.Price.Location = new System.Drawing.Point(182, 200);
             this.Price.Name = "Price";
             this.Price.Size = new System.Drawing.Size(53, 12);
             this.Price.TabIndex = 29;
@@ -243,7 +247,7 @@ namespace MusicBeePlugin
             // 
             this.EventPrice.AutoSize = true;
             this.EventPrice.ForeColor = System.Drawing.Color.Black;
-            this.EventPrice.Location = new System.Drawing.Point(236, 173);
+            this.EventPrice.Location = new System.Drawing.Point(182, 173);
             this.EventPrice.Name = "EventPrice";
             this.EventPrice.Size = new System.Drawing.Size(53, 12);
             this.EventPrice.TabIndex = 28;
@@ -253,7 +257,7 @@ namespace MusicBeePlugin
             // 
             this.ShopPrice.AutoSize = true;
             this.ShopPrice.ForeColor = System.Drawing.Color.Black;
-            this.ShopPrice.Location = new System.Drawing.Point(471, 199);
+            this.ShopPrice.Location = new System.Drawing.Point(332, 200);
             this.ShopPrice.Name = "ShopPrice";
             this.ShopPrice.Size = new System.Drawing.Size(53, 12);
             this.ShopPrice.TabIndex = 40;
@@ -263,7 +267,7 @@ namespace MusicBeePlugin
             // 
             this.Note.AutoSize = true;
             this.Note.ForeColor = System.Drawing.Color.Black;
-            this.Note.Location = new System.Drawing.Point(471, 172);
+            this.Note.Location = new System.Drawing.Point(332, 173);
             this.Note.Name = "Note";
             this.Note.Size = new System.Drawing.Size(29, 12);
             this.Note.TabIndex = 37;
@@ -273,7 +277,7 @@ namespace MusicBeePlugin
             // 
             this.Official.AutoSize = true;
             this.Official.ForeColor = System.Drawing.Color.Black;
-            this.Official.Location = new System.Drawing.Point(471, 145);
+            this.Official.Location = new System.Drawing.Point(332, 146);
             this.Official.Name = "Official";
             this.Official.Size = new System.Drawing.Size(53, 12);
             this.Official.TabIndex = 36;
@@ -283,7 +287,7 @@ namespace MusicBeePlugin
             // 
             this.CoverChar.AutoSize = true;
             this.CoverChar.ForeColor = System.Drawing.Color.Black;
-            this.CoverChar.Location = new System.Drawing.Point(471, 118);
+            this.CoverChar.Location = new System.Drawing.Point(332, 119);
             this.CoverChar.Name = "CoverChar";
             this.CoverChar.Size = new System.Drawing.Size(53, 12);
             this.CoverChar.TabIndex = 32;
@@ -300,9 +304,9 @@ namespace MusicBeePlugin
             this.dreamTextBox_AlName.ColorE = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.dreamTextBox_AlName.ColorF = System.Drawing.Color.Black;
             this.dreamTextBox_AlName.ForeColor = System.Drawing.Color.Black;
-            this.dreamTextBox_AlName.Location = new System.Drawing.Point(71, 114);
+            this.dreamTextBox_AlName.Location = new System.Drawing.Point(71, 141);
             this.dreamTextBox_AlName.Name = "dreamTextBox_AlName";
-            this.dreamTextBox_AlName.Size = new System.Drawing.Size(159, 21);
+            this.dreamTextBox_AlName.Size = new System.Drawing.Size(102, 21);
             this.dreamTextBox_AlName.TabIndex = 41;
             // 
             // dreamTextBox_Circle
@@ -316,9 +320,9 @@ namespace MusicBeePlugin
             this.dreamTextBox_Circle.ColorE = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.dreamTextBox_Circle.ColorF = System.Drawing.Color.Black;
             this.dreamTextBox_Circle.ForeColor = System.Drawing.Color.Black;
-            this.dreamTextBox_Circle.Location = new System.Drawing.Point(71, 141);
+            this.dreamTextBox_Circle.Location = new System.Drawing.Point(71, 168);
             this.dreamTextBox_Circle.Name = "dreamTextBox_Circle";
-            this.dreamTextBox_Circle.Size = new System.Drawing.Size(159, 21);
+            this.dreamTextBox_Circle.Size = new System.Drawing.Size(102, 21);
             this.dreamTextBox_Circle.TabIndex = 42;
             // 
             // dreamTextBox_Date
@@ -332,9 +336,9 @@ namespace MusicBeePlugin
             this.dreamTextBox_Date.ColorE = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.dreamTextBox_Date.ColorF = System.Drawing.Color.Black;
             this.dreamTextBox_Date.ForeColor = System.Drawing.Color.Black;
-            this.dreamTextBox_Date.Location = new System.Drawing.Point(71, 195);
+            this.dreamTextBox_Date.Location = new System.Drawing.Point(71, 222);
             this.dreamTextBox_Date.Name = "dreamTextBox_Date";
-            this.dreamTextBox_Date.Size = new System.Drawing.Size(159, 21);
+            this.dreamTextBox_Date.Size = new System.Drawing.Size(102, 21);
             this.dreamTextBox_Date.TabIndex = 44;
             // 
             // dreamTextBox_Year
@@ -348,9 +352,9 @@ namespace MusicBeePlugin
             this.dreamTextBox_Year.ColorE = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.dreamTextBox_Year.ColorF = System.Drawing.Color.Black;
             this.dreamTextBox_Year.ForeColor = System.Drawing.Color.Black;
-            this.dreamTextBox_Year.Location = new System.Drawing.Point(71, 168);
+            this.dreamTextBox_Year.Location = new System.Drawing.Point(71, 195);
             this.dreamTextBox_Year.Name = "dreamTextBox_Year";
-            this.dreamTextBox_Year.Size = new System.Drawing.Size(159, 21);
+            this.dreamTextBox_Year.Size = new System.Drawing.Size(102, 21);
             this.dreamTextBox_Year.TabIndex = 43;
             // 
             // dreamTextBox_Rate
@@ -364,9 +368,9 @@ namespace MusicBeePlugin
             this.dreamTextBox_Rate.ColorE = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.dreamTextBox_Rate.ColorF = System.Drawing.Color.Black;
             this.dreamTextBox_Rate.ForeColor = System.Drawing.Color.Black;
-            this.dreamTextBox_Rate.Location = new System.Drawing.Point(304, 87);
+            this.dreamTextBox_Rate.Location = new System.Drawing.Point(236, 87);
             this.dreamTextBox_Rate.Name = "dreamTextBox_Rate";
-            this.dreamTextBox_Rate.Size = new System.Drawing.Size(159, 21);
+            this.dreamTextBox_Rate.Size = new System.Drawing.Size(90, 21);
             this.dreamTextBox_Rate.TabIndex = 48;
             // 
             // dreamTextBox_Number
@@ -380,9 +384,9 @@ namespace MusicBeePlugin
             this.dreamTextBox_Number.ColorE = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.dreamTextBox_Number.ColorF = System.Drawing.Color.Black;
             this.dreamTextBox_Number.ForeColor = System.Drawing.Color.Black;
-            this.dreamTextBox_Number.Location = new System.Drawing.Point(304, 60);
+            this.dreamTextBox_Number.Location = new System.Drawing.Point(236, 60);
             this.dreamTextBox_Number.Name = "dreamTextBox_Number";
-            this.dreamTextBox_Number.Size = new System.Drawing.Size(159, 21);
+            this.dreamTextBox_Number.Size = new System.Drawing.Size(90, 21);
             this.dreamTextBox_Number.TabIndex = 47;
             // 
             // dreamTextBox_Event
@@ -396,9 +400,9 @@ namespace MusicBeePlugin
             this.dreamTextBox_Event.ColorE = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.dreamTextBox_Event.ColorF = System.Drawing.Color.Black;
             this.dreamTextBox_Event.ForeColor = System.Drawing.Color.Black;
-            this.dreamTextBox_Event.Location = new System.Drawing.Point(304, 33);
+            this.dreamTextBox_Event.Location = new System.Drawing.Point(236, 33);
             this.dreamTextBox_Event.Name = "dreamTextBox_Event";
-            this.dreamTextBox_Event.Size = new System.Drawing.Size(159, 21);
+            this.dreamTextBox_Event.Size = new System.Drawing.Size(90, 21);
             this.dreamTextBox_Event.TabIndex = 46;
             // 
             // dreamTextBox_EventPage
@@ -412,14 +416,14 @@ namespace MusicBeePlugin
             this.dreamTextBox_EventPage.ColorE = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.dreamTextBox_EventPage.ColorF = System.Drawing.Color.Black;
             this.dreamTextBox_EventPage.ForeColor = System.Drawing.Color.Black;
-            this.dreamTextBox_EventPage.Location = new System.Drawing.Point(304, 6);
+            this.dreamTextBox_EventPage.Location = new System.Drawing.Point(236, 6);
             this.dreamTextBox_EventPage.Name = "dreamTextBox_EventPage";
-            this.dreamTextBox_EventPage.Size = new System.Drawing.Size(159, 21);
+            this.dreamTextBox_EventPage.Size = new System.Drawing.Size(90, 21);
             this.dreamTextBox_EventPage.TabIndex = 45;
             // 
             // dreamTextBox_Disc
             // 
-            this.dreamTextBox_Disc.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.dreamTextBox_Disc.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dreamTextBox_Disc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.dreamTextBox_Disc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -430,14 +434,14 @@ namespace MusicBeePlugin
             this.dreamTextBox_Disc.ColorE = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.dreamTextBox_Disc.ColorF = System.Drawing.Color.Black;
             this.dreamTextBox_Disc.ForeColor = System.Drawing.Color.Black;
-            this.dreamTextBox_Disc.Location = new System.Drawing.Point(535, 33);
+            this.dreamTextBox_Disc.Location = new System.Drawing.Point(403, 33);
             this.dreamTextBox_Disc.Name = "dreamTextBox_Disc";
-            this.dreamTextBox_Disc.Size = new System.Drawing.Size(159, 21);
+            this.dreamTextBox_Disc.Size = new System.Drawing.Size(122, 21);
             this.dreamTextBox_Disc.TabIndex = 56;
             // 
             // dreamTextBox_Track
             // 
-            this.dreamTextBox_Track.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.dreamTextBox_Track.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dreamTextBox_Track.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.dreamTextBox_Track.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -448,14 +452,14 @@ namespace MusicBeePlugin
             this.dreamTextBox_Track.ColorE = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.dreamTextBox_Track.ColorF = System.Drawing.Color.Black;
             this.dreamTextBox_Track.ForeColor = System.Drawing.Color.Black;
-            this.dreamTextBox_Track.Location = new System.Drawing.Point(535, 6);
+            this.dreamTextBox_Track.Location = new System.Drawing.Point(403, 6);
             this.dreamTextBox_Track.Name = "dreamTextBox_Track";
-            this.dreamTextBox_Track.Size = new System.Drawing.Size(159, 21);
+            this.dreamTextBox_Track.Size = new System.Drawing.Size(122, 21);
             this.dreamTextBox_Track.TabIndex = 55;
             // 
             // dreamTextBox_Time
             // 
-            this.dreamTextBox_Time.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.dreamTextBox_Time.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dreamTextBox_Time.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.dreamTextBox_Time.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -466,14 +470,14 @@ namespace MusicBeePlugin
             this.dreamTextBox_Time.ColorE = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.dreamTextBox_Time.ColorF = System.Drawing.Color.Black;
             this.dreamTextBox_Time.ForeColor = System.Drawing.Color.Black;
-            this.dreamTextBox_Time.Location = new System.Drawing.Point(535, 87);
+            this.dreamTextBox_Time.Location = new System.Drawing.Point(403, 87);
             this.dreamTextBox_Time.Name = "dreamTextBox_Time";
-            this.dreamTextBox_Time.Size = new System.Drawing.Size(159, 21);
+            this.dreamTextBox_Time.Size = new System.Drawing.Size(122, 21);
             this.dreamTextBox_Time.TabIndex = 54;
             // 
             // dreamTextBox_Property
             // 
-            this.dreamTextBox_Property.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.dreamTextBox_Property.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dreamTextBox_Property.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.dreamTextBox_Property.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -484,9 +488,9 @@ namespace MusicBeePlugin
             this.dreamTextBox_Property.ColorE = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.dreamTextBox_Property.ColorF = System.Drawing.Color.Black;
             this.dreamTextBox_Property.ForeColor = System.Drawing.Color.Black;
-            this.dreamTextBox_Property.Location = new System.Drawing.Point(535, 60);
+            this.dreamTextBox_Property.Location = new System.Drawing.Point(403, 60);
             this.dreamTextBox_Property.Name = "dreamTextBox_Property";
-            this.dreamTextBox_Property.Size = new System.Drawing.Size(159, 21);
+            this.dreamTextBox_Property.Size = new System.Drawing.Size(122, 21);
             this.dreamTextBox_Property.TabIndex = 53;
             // 
             // dreamTextBox_Style
@@ -500,9 +504,9 @@ namespace MusicBeePlugin
             this.dreamTextBox_Style.ColorE = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.dreamTextBox_Style.ColorF = System.Drawing.Color.Black;
             this.dreamTextBox_Style.ForeColor = System.Drawing.Color.Black;
-            this.dreamTextBox_Style.Location = new System.Drawing.Point(304, 142);
+            this.dreamTextBox_Style.Location = new System.Drawing.Point(236, 142);
             this.dreamTextBox_Style.Name = "dreamTextBox_Style";
-            this.dreamTextBox_Style.Size = new System.Drawing.Size(159, 21);
+            this.dreamTextBox_Style.Size = new System.Drawing.Size(90, 21);
             this.dreamTextBox_Style.TabIndex = 52;
             // 
             // dreamTextBox_Only
@@ -516,9 +520,9 @@ namespace MusicBeePlugin
             this.dreamTextBox_Only.ColorE = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.dreamTextBox_Only.ColorF = System.Drawing.Color.Black;
             this.dreamTextBox_Only.ForeColor = System.Drawing.Color.Black;
-            this.dreamTextBox_Only.Location = new System.Drawing.Point(304, 114);
+            this.dreamTextBox_Only.Location = new System.Drawing.Point(236, 114);
             this.dreamTextBox_Only.Name = "dreamTextBox_Only";
-            this.dreamTextBox_Only.Size = new System.Drawing.Size(159, 21);
+            this.dreamTextBox_Only.Size = new System.Drawing.Size(90, 21);
             this.dreamTextBox_Only.TabIndex = 51;
             // 
             // dreamTextBox_Price
@@ -532,9 +536,9 @@ namespace MusicBeePlugin
             this.dreamTextBox_Price.ColorE = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.dreamTextBox_Price.ColorF = System.Drawing.Color.Black;
             this.dreamTextBox_Price.ForeColor = System.Drawing.Color.Black;
-            this.dreamTextBox_Price.Location = new System.Drawing.Point(304, 196);
+            this.dreamTextBox_Price.Location = new System.Drawing.Point(236, 196);
             this.dreamTextBox_Price.Name = "dreamTextBox_Price";
-            this.dreamTextBox_Price.Size = new System.Drawing.Size(159, 21);
+            this.dreamTextBox_Price.Size = new System.Drawing.Size(90, 21);
             this.dreamTextBox_Price.TabIndex = 50;
             // 
             // dreamTextBox_EventPrice
@@ -548,14 +552,14 @@ namespace MusicBeePlugin
             this.dreamTextBox_EventPrice.ColorE = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.dreamTextBox_EventPrice.ColorF = System.Drawing.Color.Black;
             this.dreamTextBox_EventPrice.ForeColor = System.Drawing.Color.Black;
-            this.dreamTextBox_EventPrice.Location = new System.Drawing.Point(304, 169);
+            this.dreamTextBox_EventPrice.Location = new System.Drawing.Point(236, 169);
             this.dreamTextBox_EventPrice.Name = "dreamTextBox_EventPrice";
-            this.dreamTextBox_EventPrice.Size = new System.Drawing.Size(159, 21);
+            this.dreamTextBox_EventPrice.Size = new System.Drawing.Size(90, 21);
             this.dreamTextBox_EventPrice.TabIndex = 49;
             // 
             // dreamTextBox_ShopPrice
             // 
-            this.dreamTextBox_ShopPrice.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.dreamTextBox_ShopPrice.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dreamTextBox_ShopPrice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.dreamTextBox_ShopPrice.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -566,14 +570,14 @@ namespace MusicBeePlugin
             this.dreamTextBox_ShopPrice.ColorE = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.dreamTextBox_ShopPrice.ColorF = System.Drawing.Color.Black;
             this.dreamTextBox_ShopPrice.ForeColor = System.Drawing.Color.Black;
-            this.dreamTextBox_ShopPrice.Location = new System.Drawing.Point(535, 195);
+            this.dreamTextBox_ShopPrice.Location = new System.Drawing.Point(403, 195);
             this.dreamTextBox_ShopPrice.Name = "dreamTextBox_ShopPrice";
-            this.dreamTextBox_ShopPrice.Size = new System.Drawing.Size(159, 21);
+            this.dreamTextBox_ShopPrice.Size = new System.Drawing.Size(122, 21);
             this.dreamTextBox_ShopPrice.TabIndex = 61;
             // 
             // dreamTextBox_Note
             // 
-            this.dreamTextBox_Note.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.dreamTextBox_Note.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dreamTextBox_Note.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.dreamTextBox_Note.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -584,14 +588,14 @@ namespace MusicBeePlugin
             this.dreamTextBox_Note.ColorE = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.dreamTextBox_Note.ColorF = System.Drawing.Color.Black;
             this.dreamTextBox_Note.ForeColor = System.Drawing.Color.Black;
-            this.dreamTextBox_Note.Location = new System.Drawing.Point(535, 168);
+            this.dreamTextBox_Note.Location = new System.Drawing.Point(403, 168);
             this.dreamTextBox_Note.Name = "dreamTextBox_Note";
-            this.dreamTextBox_Note.Size = new System.Drawing.Size(159, 21);
+            this.dreamTextBox_Note.Size = new System.Drawing.Size(122, 21);
             this.dreamTextBox_Note.TabIndex = 60;
             // 
             // dreamTextBox_Official
             // 
-            this.dreamTextBox_Official.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.dreamTextBox_Official.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dreamTextBox_Official.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.dreamTextBox_Official.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -602,14 +606,14 @@ namespace MusicBeePlugin
             this.dreamTextBox_Official.ColorE = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.dreamTextBox_Official.ColorF = System.Drawing.Color.Black;
             this.dreamTextBox_Official.ForeColor = System.Drawing.Color.Black;
-            this.dreamTextBox_Official.Location = new System.Drawing.Point(535, 141);
+            this.dreamTextBox_Official.Location = new System.Drawing.Point(403, 141);
             this.dreamTextBox_Official.Name = "dreamTextBox_Official";
-            this.dreamTextBox_Official.Size = new System.Drawing.Size(159, 21);
+            this.dreamTextBox_Official.Size = new System.Drawing.Size(122, 21);
             this.dreamTextBox_Official.TabIndex = 59;
             // 
             // dreamTextBox_CoverChar
             // 
-            this.dreamTextBox_CoverChar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.dreamTextBox_CoverChar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dreamTextBox_CoverChar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.dreamTextBox_CoverChar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -620,65 +624,66 @@ namespace MusicBeePlugin
             this.dreamTextBox_CoverChar.ColorE = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.dreamTextBox_CoverChar.ColorF = System.Drawing.Color.Black;
             this.dreamTextBox_CoverChar.ForeColor = System.Drawing.Color.Black;
-            this.dreamTextBox_CoverChar.Location = new System.Drawing.Point(535, 114);
+            this.dreamTextBox_CoverChar.Location = new System.Drawing.Point(403, 114);
             this.dreamTextBox_CoverChar.Name = "dreamTextBox_CoverChar";
-            this.dreamTextBox_CoverChar.Size = new System.Drawing.Size(159, 21);
+            this.dreamTextBox_CoverChar.Size = new System.Drawing.Size(122, 21);
             this.dreamTextBox_CoverChar.TabIndex = 57;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Location = new System.Drawing.Point(10, 5);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(220, 98);
+            this.pictureBox1.Size = new System.Drawing.Size(163, 130);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 62;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.DoubleClick += new System.EventHandler(this.pictureBox1_DoubleClick);
             // 
             // dataGridView1
             // 
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.Location = new System.Drawing.Point(10, 259);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(685, 298);
-            this.dataGridView1.TabIndex = 63;
-            // 设置DataGridView的基本样式
-            this.dataGridView1.EnableHeadersVisualStyles = false;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(45, 45, 48);
-            this.dataGridView1.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            this.dataGridView1.ColumnHeadersHeight = 35;
-            this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ReadOnly = false;
-            this.dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.MultiSelect = true;
-            this.dataGridView1.BackgroundColor = Color.White;
-            this.dataGridView1.BorderStyle = BorderStyle.None;
-            this.dataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dataGridView1.GridColor = Color.FromArgb(224, 224, 224);
-            this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.RowTemplate.DefaultCellStyle.Font = new Font("Segoe UI", 9F);
-            this.dataGridView1.RowTemplate.DefaultCellStyle.Padding = new Padding(5, 0, 5, 0);
-            this.dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(247, 247, 247);
-            // 禁用所有编辑和调整功能
-            this.dataGridView1.AllowUserToResizeRows = false;
             this.dataGridView1.AllowUserToResizeColumns = false;
-            this.dataGridView1.AllowUserToOrderColumns = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridView1.ColumnHeadersHeight = 35;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.EnableHeadersVisualStyles = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dataGridView1.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            //dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
-            this.dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
-            this.dataGridView1.StandardTab = false;
+            this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dataGridView1.Location = new System.Drawing.Point(10, 259);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dataGridView1.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.dataGridView1.RowTemplate.DefaultCellStyle.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.dataGridView1.RowTemplate.Height = 25;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(515, 298);
+            this.dataGridView1.TabIndex = 63;
             this.dataGridView1.TabStop = false;
-            this.dataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle.SelectionBackColor = Color.FromArgb(45, 45, 48);
-            this.dataGridView1.ColumnHeadersDefaultCellStyle.SelectionForeColor = Color.White;
-            this.dataGridView1.DefaultCellStyle.SelectionBackColor = Color.FromArgb(229, 243, 255);
-            this.dataGridView1.DefaultCellStyle.SelectionForeColor = Color.Black;
             // 
             // airButton_SaveTag
             // 
@@ -686,20 +691,36 @@ namespace MusicBeePlugin
             this.airButton_SaveTag.Customization = "7e3t//Ly8v/r6+v/5ubm/+vr6//f39//p6en/zw8PP8UFBT/gICA/w==";
             this.airButton_SaveTag.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.airButton_SaveTag.Image = null;
-            this.airButton_SaveTag.Location = new System.Drawing.Point(535, 222);
+            this.airButton_SaveTag.Location = new System.Drawing.Point(403, 222);
             this.airButton_SaveTag.Name = "airButton_SaveTag";
             this.airButton_SaveTag.NoRounding = false;
-            this.airButton_SaveTag.Size = new System.Drawing.Size(157, 31);
+            this.airButton_SaveTag.Size = new System.Drawing.Size(122, 31);
             this.airButton_SaveTag.TabIndex = 64;
             this.airButton_SaveTag.Text = "保存到歌曲Tag";
             this.airButton_SaveTag.Transparent = false;
             this.airButton_SaveTag.Click += new System.EventHandler(this.airButton_SaveTag_Click);
             // 
+            // airButton1
+            // 
+            this.airButton1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.airButton1.Customization = "7e3t//Ly8v/r6+v/5ubm/+vr6//f39//p6en/zw8PP8UFBT/gICA/w==";
+            this.airButton1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.airButton1.Image = null;
+            this.airButton1.Location = new System.Drawing.Point(184, 222);
+            this.airButton1.Name = "airButton1";
+            this.airButton1.NoRounding = false;
+            this.airButton1.Size = new System.Drawing.Size(122, 31);
+            this.airButton1.TabIndex = 65;
+            this.airButton1.Text = "打开Tag编辑器";
+            this.airButton1.Transparent = false;
+            this.airButton1.Click += new System.EventHandler(this.airButton1_Click);
+            // 
             // MainPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(704, 568);
+            this.ClientSize = new System.Drawing.Size(528, 568);
+            this.Controls.Add(this.airButton1);
             this.Controls.Add(this.airButton_SaveTag);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.pictureBox1);
@@ -801,5 +822,6 @@ namespace MusicBeePlugin
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private ReaLTaiizor.Controls.AirButton airButton_SaveTag;
+        private ReaLTaiizor.Controls.AirButton airButton1;
     }
 }

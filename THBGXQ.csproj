@@ -117,6 +117,12 @@
       <DependentUpon>MainPage.cs</DependentUpon>
     </Compile>
     <Compile Include="MusicBeeInterface.cs" />
+    <Compile Include="Music_Metadata_Editor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Music_Metadata_Editor.Designer.cs">
+      <DependentUpon>Music_Metadata_Editor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -162,6 +168,9 @@
   <ItemGroup>
     <EmbeddedResource Include="MainPage.resx">
       <DependentUpon>MainPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Music_Metadata_Editor.resx">
+      <DependentUpon>Music_Metadata_Editor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

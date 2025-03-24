@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing;
 using System.IO;
@@ -105,9 +103,6 @@ namespace MusicBeePlugin
 
                 switch (type)
                 {
-                    case NotificationType.PluginStartup:
-                        UpdateCurrentAlbumName();
-                        break;
                     case NotificationType.TrackChanged:
                     case NotificationType.PlayingTracksChanged:
                         UpdateCurrentAlbumName();
